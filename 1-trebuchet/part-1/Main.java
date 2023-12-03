@@ -1,10 +1,10 @@
-import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.BufferedReader;
 
 public class Main {
   public static void main(String[] args) {
     try {
-      BufferedReader br = new BufferedReader(new FileReader("input.txt"));
+      BufferedReader br = new BufferedReader(new FileReader("../input.txt"));
       int sum = 0;
 
       // Go through the file, one line at a time
