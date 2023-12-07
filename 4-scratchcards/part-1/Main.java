@@ -7,6 +7,8 @@ import java.io.FileReader;
 public class Main {
 
   public static void main(String[] args) {
+    final long startTime = System.currentTimeMillis();
+
     try {
 
       BufferedReader br = new BufferedReader(new FileReader("../input.txt"));
@@ -14,9 +16,10 @@ public class Main {
       int sum = 0;
 
       for (String line; (line = br.readLine()) != null;) {
+        // sum for each deck
         int winSum = 0;
 
-        // Scannig one int at a time
+        // Scanning one int at a time
         Scanner deckScanner = new Scanner(line.substring(41).trim());
 
         // Scanning winning deck to insert in array in ascending order for easier search
@@ -33,6 +36,9 @@ public class Main {
       }
       System.out.println("SUM = " + sum);
       br.close();
+
+      final long endTime = System.currentTimeMillis();
+      System.out.println("Total execution time: " + (endTime - startTime) + "ms");
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -54,14 +60,12 @@ public class Main {
         }
       }
     }
-    System.out.println("DONE SORTING INPUT: \tFirst: " + array[0] + ", Last: " + array[9] + "\n");
     return array;
 
   }
 
   public static boolean searchArray(int num, int[] sortedAr) {
     if (sortedAr.length == 1) {
-      System.out.println(num);
       return sortedAr[0] == num ? true : false;
     }
     if (sortedAr[(int) (sortedAr.length / 2)] == num) {
